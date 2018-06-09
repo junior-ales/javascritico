@@ -190,3 +190,34 @@ var imprimeFaixas4 = function() {
 };
 
 imprimeFaixas4();
+
+/*******************************
+       ARRAY REDUCE
+********************************/
+
+var imprimeFaixas5 = function() {
+  var permitemChaveDeJoelhoEmLetrasMaiusculas = faixas.reduce(function(
+    faixasAcumuladas,
+    faixa
+  ) {
+    switch (faixa) {
+      case 'marron':
+      case 'preta':
+      case 'vermelha-preta':
+      case 'vermelha-branca':
+      case 'vermelha':
+        return faixasAcumuladas.concat(faixa.toUpperCase());
+
+      default:
+        return faixasAcumuladas;
+    }
+  },
+  []);
+
+  console.log(
+    '[reduce] Permite-se chave de joelho: ',
+    permitemChaveDeJoelhoEmLetrasMaiusculas
+  );
+};
+
+imprimeFaixas5();
