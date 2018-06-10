@@ -19,7 +19,7 @@ var faixas = [
           FOR LOOP 
 ********************************/
 
-var imprimeFaixas = function() {
+(function() {
   /**
    * Para dar mais ênfase às faixas, antes de imprimi-las no console elas serão
    * modificadas para aparecer em letras maiúsculas.
@@ -59,15 +59,13 @@ var imprimeFaixas = function() {
   }
 
   console.log('[for 1] Permite-se chave de joelho: ', permiteChaveDeJoelho);
-};
-
-imprimeFaixas();
+})();
 
 /**
  * Fazendo os dois ao mesmo tempo.
  */
 
-var imprimeFaixas2 = function() {
+(function() {
   var permiteChaveDeJoelho = [];
 
   for (var i = 0; i < faixas.length; i++) {
@@ -82,9 +80,7 @@ var imprimeFaixas2 = function() {
   }
 
   console.log('[for 2] Permite-se chave de joelho: ', permiteChaveDeJoelho);
-};
-
-imprimeFaixas2();
+})();
 
 /**
  * While e for são maneiras de iterar o array de maneira imperativa, ou seja,
@@ -107,7 +103,7 @@ imprimeFaixas2();
        ARRAY MAP E FILTER
 ********************************/
 
-var imprimeFaixas3 = function() {
+(function() {
   /**
    * No primeiro caso estamos modificando os itens do array, todos os objectos
    * do tipo Array em Javascript tem uma funcao chamada "map" que faz exatamente o que
@@ -150,15 +146,13 @@ var imprimeFaixas3 = function() {
     '[map/filter 1] Permite-se chave de joelho: ',
     permiteChaveDeJoelho
   );
-};
-
-imprimeFaixas3();
+})();
 
 /**
  * Fazendo os dois ao mesmo tempo.
  */
 
-var imprimeFaixas4 = function() {
+(function() {
   /**
    * Como as funcoes 'map' e 'filter' retornam um array e todo Array em Javascript implementa
    * 'map' e 'filter' podemos concatenar as chamadas de funcao sem precisar nomear os valores
@@ -187,15 +181,42 @@ var imprimeFaixas4 = function() {
     '[map/filter 2] Permite-se chave de joelho: ',
     faixasQuePermitemChaveDeJoelhoEmLetrasMaiusculas
   );
-};
-
-imprimeFaixas4();
+})();
 
 /*******************************
        ARRAY REDUCE
 ********************************/
 
-var imprimeFaixas5 = function() {
+/**
+ * Utilizando map e filter a pessoa desenvolvendo esse código não precisa se preocupar
+ * com a regra de parada e nem manter variáveis temporárias e seus estados. É definitivamente
+ * um avanco, porém há um problema. Agora o código está iterando duas vezes arrays inteiros,
+ * uma para transformar os itens de 'faixas' e outra pra filtrar os itens retornados do
+ * map. Nesse caso em especifico o custo de performance é irrisório, mas e se fosse um
+ * array com milhares de itens e com uma funcão complexa dentro do map? Seria melhor
+ * uma solucão na qual um unico array fosse iterado e a transformacão e filtragem
+ * acontecessem ao mesmo tempo.
+ *
+ * Para resolver esse problema os objetos do tipo Array em Javascript implementam uma funcão
+ * chamada "reduce". Essa funcão também itera o array inteiro, mas recebe uma funcão e um
+ * valor inicial como parametros. A funcão por sua vez recebe além do item do array original,
+ * também o resultado acumulado da operacão anterior.
+ *
+ * A funcão reduce não transforma o array original, ela retorna um novo array baseado nas
+ * operacões da funcão que ela recebeu. No caso abaixo, 'faixas' continuará em seu estado
+ * original e 'permitemChaveDeJoelhoEmLetrasMaiusculas' irá conter o resultado acumulado
+ * após a iteracão total de 'faixas'. O importante aqui é que além de mantermos uma forma descritiva de programar (não imperativa),
+ * iteramos o array faixas apenas uma vez.
+ *
+ * À primeira vista é uma funcão complicada de entender, mas vários conceitos de operacões em
+ * listas são baseados nela, por isso é importante que se invista o tempo que precisar para entende-la.
+ *
+ * A tabela na pagina 'index.html' desse episodio mostra um passo a passo de como as variaveis
+ * vão mudando a cada iteracao até chegar ao resultado final.
+ *
+ */
+
+(function() {
   var permitemChaveDeJoelhoEmLetrasMaiusculas = faixas.reduce(function(
     faixasAcumuladas,
     faixa
@@ -218,6 +239,4 @@ var imprimeFaixas5 = function() {
     '[reduce] Permite-se chave de joelho: ',
     permitemChaveDeJoelhoEmLetrasMaiusculas
   );
-};
-
-imprimeFaixas5();
+})();

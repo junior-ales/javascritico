@@ -1,5 +1,5 @@
 <html>
-<title>MoisesJS - Loops: Map, Filter e Reduce</title>
+<title>JavaScritico - Loops: Map, Filter e Reduce</title>
 <meta charset="utf-8" />
 
 <style>
@@ -12,9 +12,17 @@
   }
 
   header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     margin: 0;
-    padding: 1em;
+    padding: .5rem 0;
     background-color: #e4e4e4;
+  }
+
+  header>* {
+    padding-left: 1rem;
   }
 
   header h1 {
@@ -24,17 +32,22 @@
   header p {
     color: grey;
     font-size: larger;
-    margin-top: .25em;
+    margin-top: .25rem;
   }
 
   main {
-    padding: 1em;
-    max-width: 600px;
-    margin: auto;
+    padding: 1rem;
+    /* max-width: 600px; */
+    margin: 6em auto;
   }
 
   main pre {
     padding: 1em 0;
+    background-color: #fbfbfb;
+  }
+
+  div>code {
+    padding: 1em;
     background-color: #fbfbfb;
   }
 
@@ -65,8 +78,25 @@
     color: #e4e4e4;
   }
 
-  .observacao {
-    margin-top: 3em;
+  table {
+    width: 100%;
+    margin-top: 1em;
+    background-color: #fbfbfb;
+  }
+
+  th+th,
+  td+td {
+    border-left: solid #424242 1px;
+  }
+
+  td {
+    border-top: solid #424242 1px;
+    text-align: center;
+    background-color: #fbfbfb;
+  }
+
+  tr.destaque>td {
+    background-color: yellow;
   }
 </style>
 
@@ -107,7 +137,126 @@
   }, [INICIALIZADOR])</pre>
       </div>
     </div>
-    <p class="observacao"><em>Obs: abra a console do navegador</em></p>
+
+    <div>
+      <p>Faixas</p>
+      <code>
+        ['branca', 'azul', 'roxa', 'marron', 'preta', 'vermelha-preta', 'vermelha-branca', 'vermelha']
+      </code>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Iteracões</th>
+          <th>faixasAcumuladas</th>
+          <th>faixa</th>
+          <th>Valor de Retorno</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primeira</td>
+          <td>
+            <code>[]</code>
+          </td>
+          <td>
+            <code>'branca'</code>
+          </td>
+          <td>
+            <code>[]</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Segunda</td>
+          <td>
+            <code>[]</code>
+          </td>
+          <td>
+            <code>'azul'</code>
+          </td>
+          <td>
+            <code>[]</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Terceira</td>
+          <td>
+            <code>[]</code>
+          </td>
+          <td>
+            <code>'roxa'</code>
+          </td>
+          <td>
+            <code>[]</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Quarta</td>
+          <td>
+            <code>[]</code>
+          </td>
+          <td>
+            <code>'marron'</code>
+          </td>
+          <td>
+            <code>['MARRON']</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Quinta</td>
+          <td>
+            <code>['MARRON']</code>
+          </td>
+          <td>
+            <code>'preta'</code>
+          </td>
+          <td>
+            <code>['MARRON', 'PRETA']</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Sexta</td>
+          <td>
+            <code>['MARRON', 'PRETA']</code>
+          </td>
+          <td>
+            <code>'vermelha-preta'</code>
+          </td>
+          <td>
+            <code>['MARRON', 'PRETA', 'VERMELHA-PRETA']</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Sétima</td>
+          <td>
+            <code>['MARRON', 'PRETA', 'VERMELHA-PRETA']</code>
+          </td>
+          <td>
+            <code>'vermelha-branca'</code>
+          </td>
+          <td>
+            <code>['MARRON', 'PRETA', 'VERMELHA-PRETA', 'VERMELHA-BRANCA']</code>
+          </td>
+        </tr>
+        <tr>
+          <td>Oitava</td>
+          <td>
+            <code>['MARRON', 'PRETA', 'VERMELHA-PRETA', 'VERMELHA-BRANCA']</code>
+          </td>
+          <td>
+            <code>'vermelha'</code>
+          </td>
+          <td>
+            <code>['MARRON', 'PRETA', 'VERMELHA-PRETA', 'VERMELHA-BRANCA', 'VERMELHA']</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="observacao">
+      <em>Obs: abra a console do navegador</em>
+    </p>
   </main>
 
   <footer>
@@ -122,7 +271,7 @@
         </li>
       </ul>
     </nav>
-    <p>MoisesJS por Junior Ales</p>
+    <p>JavaScritico por Junior Ales</p>
   </footer>
 
   <script src="./episodio.js"></script>
