@@ -29,11 +29,18 @@
 
   main {
     padding: 1em;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  main pre {
+    padding: 1em 0;
+    background-color: #fbfbfb;
   }
 
   footer {
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     color: grey;
@@ -57,6 +64,10 @@
   li a {
     color: #e4e4e4;
   }
+
+  .observacao {
+    margin-top: 3em;
+  }
 </style>
 
 <body>
@@ -66,12 +77,37 @@
   </header>
 
   <main>
-    <ul>
-      <li>Filtrando itens dos arrays</li>
-      <li>Transformando itens dos arrays</li>
-      <li>Transformando os arrays</li>
-    </ul>
-    <p>Abra a console do navegador</p>
+    <div>
+      <h2>Transformando itens dos arrays</h2>
+      <div>
+        <pre>
+  elementos.map(function(elemento) {
+    ...
+    return [ELEMENTO_NOVO];
+  })</pre>
+      </div>
+    </div>
+    <div>
+      <h2>Filtrando itens dos arrays</h2>
+      <div>
+        <pre>
+  elementos.filter(function(elemento) {
+    ...
+    return [BOLEANO];
+  })</pre>
+      </div>
+    </div>
+    <div>
+      <h2>Transformando os arrays</h2>
+      <div>
+        <pre>
+  elementos.reduce(function(acumulador, elemento) {
+    ...
+    return [ELEMENTO_NOVO];
+  }, [INICIALIZADOR])</pre>
+      </div>
+    </div>
+    <p class="observacao"><em>Obs: abra a console do navegador</em></p>
   </main>
 
   <footer>
